@@ -1,0 +1,202 @@
+{
+  "personal_info": {
+    "name": "Fahadul Islam Shadhin",
+    "contact": {
+      "phone": "+8801749024207",
+      "email": "fahadulshadhin17@gmail.com",
+      "website": "https://www.fahadulshadhin.dev",
+      "linkedin": "https://www.linkedin.com/in/fahadul-shadhin/",
+      "github": "https://github.com/FahadulShadhin"
+    }
+  },
+  "professional_summary": "Software Engineer with experience delivering production-grade applications, backend services, API integrations, and workflow automation across e-commerce and insurance domains. Expertise in JavaScript, Python, React, Node.js, REST APIs, and GraphQL. Skilled in owning complex features, resolving high-impact production issues, improving application performance, mentoring developers, and leveraging LLM-assisted development.",
+  "technical_skills": [
+    {
+      "category": "Programming Languages",
+      "items": [
+        "JavaScript",
+        "TypeScript",
+        "Python"
+      ]
+    },
+    {
+      "category": "Technologies",
+      "items": [
+        "Node.js",
+        "React",
+        "Vite",
+        "FastAPI",
+        "Django",
+        "PostgreSQL",
+        "MongoDB",
+        "Git",
+        "GitHub",
+        "Docker",
+        "Shopify",
+        "InsureMO",
+        "LLMs",
+        "OpenAI APIs",
+        "OpenCode",
+        "LM Studio"
+      ]
+    }
+  ],
+  "work_experience": [
+    {
+      "company": "AGT Software Partners",
+      "position": "Software Engineer II",
+      "location": "Remote",
+      "start_date": "Nov 2025",
+      "end_date": null,
+      "responsibilities": [
+        {
+          "text": "Delivered 3 insurance products across the US and Canada on InsureMO platform, owning product configuration, form development, custom insurance APIs, and backend integrations.",
+          "metrics": [
+            "3 insurance products"
+          ]
+        },
+        {
+          "text": "Engineered JEXL-driven form logic and API orchestration for proposal cancellation, policy issuance, custom endorsements, and policy/proposal number generation; automated Forms uploads through scripting. Resolved a critical print-service validation error affecting 600+ form configurations.",
+          "metrics": [
+            "600+ form configurations"
+          ]
+        },
+        {
+          "text": "Served as an InsureMO Forms and Product Build SME, leading complex form configurations, attachment logic, and data mapping while mentoring new developers.",
+          "metrics": []
+        },
+        {
+          "text": "Resolved 139 defects across the Ryan Specialty Underwriting Managers platform, predominantly Critical/High severity. Developed data workflows and UI modules for Coverages and Additional Interests",
+          "metrics": [
+            "139 defects"
+          ]
+        },
+        {
+          "text": "Collaborated with Unqork engineers on Vega 2.0 runtime POCs, contributing to 4 new components and reusable server-side pagination module.",
+          "metrics": [
+            "4 new components"
+          ]
+        }
+      ]
+    },
+    {
+      "company": "Bevy Commerce",
+      "position": "Full Stack Developer",
+      "location": "Remote",
+      "start_date": "Jul 2023",
+      "end_date": "Dec 2025",
+      "responsibilities": [
+        {
+          "text": "Developed a Shopify application for furniture retailers, allowing personalized order creation across POS and Admin using specific workflows and attributes.",
+          "metrics": []
+        },
+        {
+          "text": "Built a custom collection management application with configurable rule-based conditions, metafield filters, and logical operators (AND/OR, contains, starts-with).",
+          "metrics": []
+        },
+        {
+          "text": "Developed a Shopify POS application supporting on-account orders and receipt printing, integrating QuickBooks Desktop synchronization through its SOAP API. Modernized the legacy app by migrating Admin REST integrations to GraphQL and replacing deprecated operations, achieving a 100% reduction in API deprecation errors.",
+          "metrics": [
+            "100% reduction in API deprecation errors"
+          ]
+        },
+        {
+          "text": "Designed a reusable Shopify image-picker modal adopted across internal products; leveraged Shopify’s media transformations to serve optimized WebP thumbnails, reducing list-view image loading time by 50%.",
+          "metrics": [
+            "reducing list-view image loading time by 50%"
+          ]
+        },
+        {
+          "text": "Integrated Web3 wallet connectivity into a Shopify storefront using WalletConnect SDK, supporting QR-code authentication on web and deep-link connections on mobile; optimized performance and accessibility, achieving Lighthouse scores above 90.",
+          "metrics": [
+            "Lighthouse scores above 90"
+          ]
+        },
+        {
+          "text": "Transformed Lovable prototypes into production-ready Shopify applications, developing backend APIs and reusable UI components aligned with Shopify Polaris.",
+          "metrics": [
+            "Lovable prototypes into production-ready Shopify applications"
+          ]
+        },
+        {
+          "text": "Delivered a Frappe ERP MVP embedded in Shopify Admin, implementing authentication, integration workflows, and automatic synchronization of changes between both platforms.",
+          "metrics": [
+            "ERP MVP embedded in Shopify Admin"
+          ]
+        }
+      ]
+    },
+    {
+      "company": "Spring Rain Pvt Ltd",
+      "position": "Software Engineer Intern",
+      "location": "Remote",
+      "start_date": "Jan 2023",
+      "end_date": "Apr 2023",
+      "responsibilities": [
+        {
+          "text": "Collaborated with developers in an Agile environment, contributing to sprint planning, task execution, and delivery of full-stack features using Node.js, React, MongoDB, and DynamoDB.",
+          "metrics": []
+        }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Chittagong University of Engineering & Technology",
+      "location": "Chittagong, Bangladesh",
+      "degree": "Bachelor of Science in Computer Science and Engineering",
+      "start_date": "Jan 2018",
+      "end_date": "Jul 2023"
+    }
+  ],
+  "projects": [
+    {
+      "name": "ERD to Prisma",
+      "description": "Design entity-relationship diagrams and generate Prisma schema definitions.",
+      "links": {
+        "github": "https://github.com/FahadulShadhin/erd-to-prisma",
+        "live": "https://erd-to-prisma.netlify.app/"
+      }
+    },
+    {
+      "name": "LeetCode Stats API",
+      "description": "API that retrieves LeetCode user statistics.",
+      "links": {
+        "github": "https://github.com/FahadulShadhin/leetcode-stats",
+        "live": "https://leetcode-stats-api.onrender.com/frontend/"
+      }
+    },
+    {
+      "name": "Share File CLI",
+      "description": "Command-line tool for file sharing directly from the terminal.",
+      "links": {
+        "github": "https://github.com/FahadulShadhin/share-file-cli"
+      }
+    },
+    {
+      "name": "Sorting Algorithms Visualizer",
+      "description": "Desktop application to visualize sorting algorithm execution.",
+      "links": {
+        "github": "https://github.com/FahadulShadhin/sorting-algorithms-visualizer"
+      }
+    },
+    {
+      "name": "Sentiment Analysis API",
+      "description": "API to classify sentiment of text.",
+      "links": {
+        "github": "https://github.com/FahadulShadhin/sentiment_analysis_api"
+      }
+    }
+  ],
+  "layout_settings": {
+    "page_size": "LETTER",
+    "single_page": true,
+    "section_order": [
+      "professional_summary",
+      "technical_skills",
+      "work_experience",
+      "education",
+      "projects"
+    ]
+  }
+}

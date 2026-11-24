@@ -1,0 +1,19 @@
+[project]
+name = "resume-builder"
+version = "0.1.0"
+description = "Generate a polished PDF resume from validated JSON data"
+authors = [
+    { name = "FahadulShadhin", email = "fahadulshadhin17@gmail.com" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "pydantic>=2.10,<3",
+    "reportlab>=4.2,<5",
+]
+
+[project.scripts]
+resume-builder = "resume_builder.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
