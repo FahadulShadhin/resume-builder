@@ -8,7 +8,7 @@
 
 ![Resume preview](public/gifs/ezgif-8c0ac599b1ce136a.gif)
 
-- **Only edit josn**
+- **Only edit json**
 - **Automate PDF and Google Drive link generation**
 - **Validated input**: resume JSON is checked with Pydantic models before any PDF rendering happens; unknown fields are rejected.
 - **One-page output**: enforce `settings.single_page` and fail with an actionable error instead of silently creating a multi-page resume.
