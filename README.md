@@ -75,6 +75,8 @@ uv run python -m unittest discover -s tests -v
 
 ## Project structure
 
+![Architecture](/public/diagrams/flow.drawio.png)
+
 ```text
 resume-builder/
 ├── data/
