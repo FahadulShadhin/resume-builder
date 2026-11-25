@@ -6,8 +6,8 @@
 [![uv](https://img.shields.io/badge/uv-manager-blue?style=flat-square&logo=uv)](https://docs.astral.sh/uv/)
 [![Google Drive API](https://img.shields.io/badge/Google%20Drive-API-blue?style=flat-square&logo=google-drive)](https://developers.google.com/drive/api-reference/v3/about)
 
-## Features
-
+- **Only edit josn**
+- **Automate PDF and Google Drive link generation**
 - **Validated input**: resume JSON is checked with Pydantic models before any PDF rendering happens; unknown fields are rejected.
 - **One-page output**: enforce `settings.single_page` and fail with an actionable error instead of silently creating a multi-page resume.
 - **Configurable layout**: page size (`LETTER` or `A4`) and section order come from the `settings` block in the JSON.
