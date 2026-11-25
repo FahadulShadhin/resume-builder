@@ -1,6 +1,4 @@
-# Resume Builder
-
-Built this to generate my one-page, Letter-size PDF resume from validated JSON data, using [uv](https://docs.astral.sh/uv/), Pydantic, and ReportLab.
+# My Resume Builder
 
 [![Python](https://img.shields.io/badge/Python-3.14+-blue?style=flat-square&logo=python)](https://www.python.org/)
 [![Pydantic](https://img.shields.io/badge/Pydantic-2.x-blue?style=flat-square&logo=pydantic)](https://docs.pydantic.dev/)
