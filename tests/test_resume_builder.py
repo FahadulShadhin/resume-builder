@@ -51,13 +51,12 @@ class ResumeBuilderTests(unittest.TestCase):
             input_path.write_text((ROOT / "data/resume.json").read_text())
             output_path = Path(temp_dir) / "resume.pdf"
 
-            with patch.object(cli, "upload_pdf_to_drive") as mock_upload:
-                with patch.object(
-                    sys,
-                    "argv",
-                    ["resume-builder", "--input", str(input_path), "--output", str(output_path)],
-                ):
-                    cli.main()
+            with patch.object(cli, "INPUT_PATH", input_path), patch.object(
+                cli, "OUTPUT_PATH", output_path
+            ):
+                with patch.object(cli, "upload_pdf_to_drive") as mock_upload:
+                    with patch.object(sys, "argv", ["resume-builder"]):
+                        cli.main()
 
             mock_upload.assert_called_once_with(output_path)
 
@@ -67,20 +66,12 @@ class ResumeBuilderTests(unittest.TestCase):
             input_path.write_text((ROOT / "data/resume.json").read_text())
             output_path = Path(temp_dir) / "resume.pdf"
 
-            with patch.object(cli, "upload_pdf_to_drive") as mock_upload:
-                with patch.object(
-                    sys,
-                    "argv",
-                    [
-                        "resume-builder",
-                        "--input",
-                        str(input_path),
-                        "--output",
-                        str(output_path),
-                        "--no-drive",
-                    ],
-                ):
-                    cli.main()
+            with patch.object(cli, "INPUT_PATH", input_path), patch.object(
+                cli, "OUTPUT_PATH", output_path
+            ):
+                with patch.object(cli, "upload_pdf_to_drive") as mock_upload:
+                    with patch.object(sys, "argv", ["resume-builder", "--no-drive"]):
+                        cli.main()
 
             mock_upload.assert_not_called()
             self.assertTrue(output_path.exists())

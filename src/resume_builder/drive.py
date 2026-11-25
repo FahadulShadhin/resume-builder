@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import os
 from pathlib import Path
 from typing import Any
 
@@ -11,14 +10,12 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from googleapiclient.http import MediaFileUpload
 
-DRIVE_SCOPES = ["https://www.googleapis.com/auth/drive.file"]
-DEFAULT_DRIVE_FILE_NAME = "Fahadul_Islam_Shadhin_Resume.pdf"
-TOKEN_FILENAME = "token.json"
+from resume_builder import variables
 
 
 def get_drive_credentials() -> Credentials:
-    client_id = os.environ.get("GOOGLE_DRIVE_CLIENT_ID")
-    client_secret = os.environ.get("GOOGLE_DRIVE_CLIENT_SECRET")
+    client_id = variables.GOOGLE_DRIVE_CLIENT_ID
+    client_secret = variables.GOOGLE_DRIVE_CLIENT_SECRET
     if not client_id or not client_secret:
         raise ValueError(
             "Google Drive upload failed: OAuth client credentials are not configured. "
@@ -26,10 +23,10 @@ def get_drive_credentials() -> Credentials:
             "variables for your Google Cloud OAuth 2.0 Desktop client."
         )
 
-    token_path = Path(os.environ.get("GOOGLE_DRIVE_TOKEN_PATH", TOKEN_FILENAME))
+    token_path = Path(variables.GOOGLE_DRIVE_TOKEN_PATH)
     credentials: Credentials | None = None
     if token_path.exists():
-        credentials = Credentials.from_authorized_user_file(token_path, scopes=DRIVE_SCOPES)
+        credentials = Credentials.from_authorized_user_file(token_path, scopes=variables.DRIVE_SCOPES)
 
     if credentials is None or not credentials.valid:
         if credentials is not None and credentials.expired and credentials.refresh_token:
@@ -45,7 +42,7 @@ def get_drive_credentials() -> Credentials:
                         "redirect_uris": ["http://localhost:8080/"],
                     }
                 },
-                scopes=DRIVE_SCOPES,
+                scopes=variables.DRIVE_SCOPES,
             )
             credentials = flow.run_local_server(port=0)
             token_path.parent.mkdir(parents=True, exist_ok=True)
@@ -77,7 +74,9 @@ def _find_drive_file(service: Any, file_name: str) -> str | None:
     return files[0]["id"] if files else None
 
 
-def upload_pdf_to_drive(file_path: Path, file_name: str = DEFAULT_DRIVE_FILE_NAME) -> str:
+def upload_pdf_to_drive(
+    file_path: Path, file_name: str = variables.DEFAULT_DRIVE_FILE_NAME
+) -> str:
     try:
         service = get_drive_service()
         media = MediaFileUpload(str(file_path), mimetype="application/pdf")

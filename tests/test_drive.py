@@ -5,7 +5,7 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 from unittest.mock import MagicMock, patch
 
-from resume_builder import drive
+from resume_builder import drive, variables
 
 
 class DriveTests(unittest.TestCase):
@@ -19,7 +19,7 @@ class DriveTests(unittest.TestCase):
         service.files.return_value.list.return_value.execute.return_value = {"files": []}
         service.files.return_value.create.return_value.execute.return_value = {
             "id": "drive-file-id",
-            "name": drive.DEFAULT_DRIVE_FILE_NAME,
+            "name": variables.DEFAULT_DRIVE_FILE_NAME,
             "mimeType": "application/pdf",
             "webViewLink": "https://drive.google.com/file/d/drive-file-id/view",
         }
@@ -35,17 +35,17 @@ class DriveTests(unittest.TestCase):
         self.assertEqual(create.call_count, 1)
         self.assertEqual(
             create.call_args.kwargs["body"]["name"],
-            drive.DEFAULT_DRIVE_FILE_NAME,
+            variables.DEFAULT_DRIVE_FILE_NAME,
         )
 
     def test_upload_pdf_to_drive_replaces_existing_file(self) -> None:
         service = MagicMock()
         service.files.return_value.list.return_value.execute.return_value = {
-            "files": [{"id": "existing-file-id", "name": drive.DEFAULT_DRIVE_FILE_NAME}]
+            "files": [{"id": "existing-file-id", "name": variables.DEFAULT_DRIVE_FILE_NAME}]
         }
         service.files.return_value.update.return_value.execute.return_value = {
             "id": "existing-file-id",
-            "name": drive.DEFAULT_DRIVE_FILE_NAME,
+            "name": variables.DEFAULT_DRIVE_FILE_NAME,
             "mimeType": "application/pdf",
             "webViewLink": "https://drive.google.com/file/d/existing-file-id/view",
         }
@@ -63,15 +63,11 @@ class DriveTests(unittest.TestCase):
         self.assertEqual(service.files.return_value.create.call_count, 0)
 
     def test_get_drive_credentials_requires_oauth_client(self) -> None:
-        with TemporaryDirectory() as temp_dir:
-            env = {
-                "GOOGLE_DRIVE_CLIENT_ID": "",
-                "GOOGLE_DRIVE_CLIENT_SECRET": "",
-                "GOOGLE_DRIVE_TOKEN_PATH": str(Path(temp_dir) / "token.json"),
-            }
-            with patch.dict("os.environ", env, clear=False):
-                with self.assertRaises(ValueError):
-                    drive.get_drive_credentials()
+        with patch.object(variables, "GOOGLE_DRIVE_CLIENT_ID", ""), patch.object(
+            variables, "GOOGLE_DRIVE_CLIENT_SECRET", ""
+        ):
+            with self.assertRaises(ValueError):
+                drive.get_drive_credentials()
 
 
 if __name__ == "__main__":
