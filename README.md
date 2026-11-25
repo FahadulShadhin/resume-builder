@@ -6,6 +6,8 @@
 [![uv](https://img.shields.io/badge/uv-manager-blue?style=flat-square&logo=uv)](https://docs.astral.sh/uv/)
 [![Google Drive API](https://img.shields.io/badge/Google%20Drive-API-blue?style=flat-square&logo=google-drive)](https://developers.google.com/drive/api-reference/v3/about)
 
+![Resume preview](public/gifs/ezgif-8c0ac599b1ce136a.gif)
+
 - **Only edit josn**
 - **Automate PDF and Google Drive link generation**
 - **Validated input**: resume JSON is checked with Pydantic models before any PDF rendering happens; unknown fields are rejected.
@@ -42,10 +44,6 @@ uv run resume-builder --no-drive
 ```
 
 The resume JSON is validated against the models in `src/models.py`. The PDF uses the section order and page-size settings from the JSON. If `single_page` is enabled and the content does not fit, generation fails with an actionable error instead of creating a multi-page resume.
-
-## Preview
-
-![Resume preview](public/gifs/ezgif-8c0ac599b1ce136a.gif)
 
 ## Google Drive upload
 
