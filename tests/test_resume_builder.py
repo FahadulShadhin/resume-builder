@@ -1,12 +1,15 @@
 from __future__ import annotations
 
 import re
+import sys
 import unittest
 from pathlib import Path
 from tempfile import TemporaryDirectory
+from unittest.mock import patch
 
 from pydantic import ValidationError
 
+from resume_builder import cli
 from resume_builder.models import Resume
 from resume_builder.pdf import build_pdf
 
@@ -41,6 +44,46 @@ class ResumeBuilderTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "single_page is true"):
                 build_pdf(resume, output)
             self.assertFalse(output.exists())
+
+    def test_cli_uploads_generated_resume_to_drive(self) -> None:
+        with TemporaryDirectory() as temp_dir:
+            input_path = Path(temp_dir) / "resume.json"
+            input_path.write_text((ROOT / "data/resume.json").read_text())
+            output_path = Path(temp_dir) / "resume.pdf"
+
+            with patch.object(cli, "upload_pdf_to_drive") as mock_upload:
+                with patch.object(
+                    sys,
+                    "argv",
+                    ["resume-builder", "--input", str(input_path), "--output", str(output_path)],
+                ):
+                    cli.main()
+
+            mock_upload.assert_called_once_with(output_path)
+
+    def test_cli_no_drive_skips_upload(self) -> None:
+        with TemporaryDirectory() as temp_dir:
+            input_path = Path(temp_dir) / "resume.json"
+            input_path.write_text((ROOT / "data/resume.json").read_text())
+            output_path = Path(temp_dir) / "resume.pdf"
+
+            with patch.object(cli, "upload_pdf_to_drive") as mock_upload:
+                with patch.object(
+                    sys,
+                    "argv",
+                    [
+                        "resume-builder",
+                        "--input",
+                        str(input_path),
+                        "--output",
+                        str(output_path),
+                        "--no-drive",
+                    ],
+                ):
+                    cli.main()
+
+            mock_upload.assert_not_called()
+            self.assertTrue(output_path.exists())
 
 
 if __name__ == "__main__":
