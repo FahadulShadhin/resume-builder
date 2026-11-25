@@ -9,9 +9,9 @@ from unittest.mock import patch
 
 from pydantic import ValidationError
 
-from resume_builder import cli
-from resume_builder.models import Resume
-from resume_builder.pdf import build_pdf
+from src import cli
+from src.models import Resume
+from src.pdf import build_pdf
 
 ROOT = Path(__file__).resolve().parents[1]
 

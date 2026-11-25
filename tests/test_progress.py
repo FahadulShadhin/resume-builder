@@ -4,7 +4,7 @@ import io
 import unittest
 from unittest.mock import patch
 
-from resume_builder.progress import ProgressBar
+from src.progress import ProgressBar
 
 
 class ProgressBarTests(unittest.TestCase):

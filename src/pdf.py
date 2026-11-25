@@ -21,7 +21,7 @@ from reportlab.platypus import (
     TableStyle,
 )
 
-from resume_builder.models import Education, Experience, Project, Resume
+from src.models import Education, Experience, Project, Resume
 
 PAGE_SIZES = {"LETTER": LETTER, "A4": A4}
 LINK_BLUE = colors.HexColor("#0000ee")

@@ -6,11 +6,11 @@ import sys
 
 from pydantic import ValidationError
 
-from resume_builder.drive import upload_pdf_to_drive
-from resume_builder.models import Resume
-from resume_builder.pdf import build_pdf
-from resume_builder.progress import ProgressBar
-from resume_builder.variables import INPUT_PATH, OUTPUT_PATH
+from src.drive import upload_pdf_to_drive
+from src.models import Resume
+from src.pdf import build_pdf
+from src.progress import ProgressBar
+from src.variables import INPUT_PATH, OUTPUT_PATH
 
 
 def main() -> None:

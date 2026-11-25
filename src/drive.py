@@ -10,7 +10,7 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from googleapiclient.http import MediaFileUpload
 
-from resume_builder import variables
+from src import variables
 
 
 def get_drive_credentials() -> Credentials:

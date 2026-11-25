@@ -1,3 +1,3 @@
-from resume_builder.cli import main
+from src.cli import main
 
 main()

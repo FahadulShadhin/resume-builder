@@ -5,7 +5,7 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 from unittest.mock import MagicMock, patch
 
-from resume_builder import drive, variables
+from src import drive, variables
 
 
 class DriveTests(unittest.TestCase):
