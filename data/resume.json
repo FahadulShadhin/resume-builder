@@ -34,7 +34,7 @@
         "Docker",
         "Shopify",
         "InsureMO",
-        "LLMs",
+        "Hugging Face",
         "OpenAI APIs",
         "OpenCode",
         "LM Studio"
@@ -152,7 +152,7 @@
   "projects": [
     {
       "name": "ERD to Prisma",
-      "description": "Design entity-relationship diagrams and generate Prisma schema definitions.",
+      "description": "Interactive ERD designer with React Flow to generate Prisma schemas from entities.",
       "links": {
         "github": "https://github.com/FahadulShadhin/erd-to-prisma",
         "live": "https://erd-to-prisma.netlify.app/"
@@ -160,10 +160,17 @@
     },
     {
       "name": "LeetCode Stats API",
-      "description": "API that retrieves LeetCode user statistics.",
+      "description": "FastAPI REST API that fetches LeetCode user statistics and serves a web view.",
       "links": {
         "github": "https://github.com/FahadulShadhin/leetcode-stats",
         "live": "https://leetcode-stats-api.onrender.com/frontend/"
+      }
+    },
+    {
+      "name": "Resume Builder",
+      "description": "Generates a one-page PDF resume from JSON.",
+      "links": {
+        "github": "https://github.com/FahadulShadhin/resume-builder"
       }
     },
     {
