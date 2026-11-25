@@ -2,6 +2,12 @@
 
 Generate a polished, one-page, Letter-size PDF resume from validated JSON data using [uv](https://docs.astral.sh/uv/), Pydantic, and ReportLab.
 
+[![Python](https://img.shields.io/badge/Python-3.14+-blue?style=flat-square&logo=python)](https://www.python.org/)
+[![Pydantic](https://img.shields.io/badge/Pydantic-2.x-blue?style=flat-square&logo=pydantic)](https://docs.pydantic.dev/)
+[![ReportLab](https://img.shields.io/badge/ReportLab-4.x-blue?style=flat-square&logo=python)](https://pypi.org/project/reportlab/)
+[![uv](https://img.shields.io/badge/uv-manager-blue?style=flat-square&logo=uv)](https://docs.astral.sh/uv/)
+[![Google Drive API](https://img.shields.io/badge/Google%20Drive-API-blue?style=flat-square&logo=google-drive)](https://developers.google.com/drive/api-reference/v3/about)
+
 ## Features
 
 - **Validated input**: the resume JSON is checked with Pydantic models before any PDF rendering happens; unknown fields are rejected.
